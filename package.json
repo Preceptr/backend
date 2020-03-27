@@ -1,0 +1,47 @@
+{
+  "name": "preceptr-backend",
+  "version": "1.0.0",
+  "description": "lala",
+  "main": "index.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=testing jest --watch",
+    "start": "node index.js",
+    "server": "nodemon"
+  },
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "axios": "^0.19.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.22.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.20.13",
+    "knex-cleaner": "^1.3.0",
+    "lodash": "^4.17.15",
+    "morgan": "^1.10.0",
+    "node-sass": "^4.13.1",
+    "pg": "^7.18.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "jest": "^25.2.3",
+    "nodemon": "^2.0.2",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Preceptr/backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Preceptr/backend/issues"
+  },
+  "homepage": "https://github.com/Preceptr/backend#readme"
+}
