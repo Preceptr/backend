@@ -5,7 +5,7 @@ const restricted = require('./routes/auth/restricted-middleware');
 const UserRouter = require('./routes/users/user-route');
 const HelperRouter = require('./helpers/helperRoutes')
 const InstructorRouter = require('./instructors/instructorRoutes')
-
+const StudentRouter = require('./students/studentRoutes')
 router.get('/', (req, res) => {
   res.status(200).json({ welcome: 'API router' });
 });
@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
 router.use('/auth', AuthRouter);
 router.use('/helpers', HelperRouter)
 router.use('/instructors', InstructorRouter)
+router.use('/students', StudentRouter)
 
 module.exports = router;
 
