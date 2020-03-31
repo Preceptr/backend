@@ -2,24 +2,30 @@ const db = require('../../data/db.config');
 
 const pong = () => "pong"
 
-function find(id) {
-    let user = db('students');
-    
-    if (id) {
-        return user.where({ id: id }).first();
-    } else {
-        return user;
-    }
-}
+// function find(id) {
+//     let user = db('students');
 
-async function add(user) {
-    await db('users').insert(user);
-    
-    return find(user.id);
-}
+//     if (id) {
+//         return user.where({ id: id }).first();
+//     } else {
+//         return user;
+//     }
+// }
 
-function findBy(filter) {
-    return db('users').where(filter);
-}
+/**
+ * Adds new user with null values, and returns the id directly
+ */
+const add = async() => { 
+    const [newStudentID] = await db('students').insert({}).returning('id') 
+    return newStudentID
+};
 
-module.exports = { find, add, findBy, pong };
+const getAll = () => db('students')
+
+
+
+// function findBy(filter) {
+//     return db('users').where(filter);
+// }
+
+module.exports = { pong, add, getAll }

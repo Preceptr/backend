@@ -3,10 +3,12 @@ const server = express();
 const helmet = require('helmet');
 const morgan = require('morgan');
 const cors = require('cors');
+const cookieParser = require('cookie-parser')
 
 const ApiRouter = require('../api/apiRoutes');
 
 server.use(express.json());
+server.use(cookieParser())
 server.use(morgan('combined'));
 server.use(helmet());
 server.use(cors());
