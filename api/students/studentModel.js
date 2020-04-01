@@ -22,10 +22,13 @@ const add = async() => {
 
 const getAll = () => db('students')
 
-
+const changeName = async (name) => {
+    const [newStudentName] = await db('students').update({name}).returning('name')
+    return newStudentName
+}
 
 // function findBy(filter) {
 //     return db('users').where(filter);
 // }
 
-module.exports = { pong, add, getAll }
+module.exports = { pong, add, getAll, changeName }

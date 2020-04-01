@@ -12,4 +12,8 @@ const getAllStudents = async () => {
   return await StudentModel.getAll()
 }
 
-module.exports = { registerStudent, getAllStudents }
+const changeStudentName = async name => {
+  return await StudentModel.changeName(name)
+} 
+
+module.exports = { registerStudent, getAllStudents, changeStudentName }
