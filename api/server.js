@@ -22,7 +22,11 @@ server.use('/api', ApiRouter);
 
 server.use((err, req, res, next) => {
   console.log(err)
-  res.json({ message: err.message }).status(err.httpStatusCode || 500)
+  let errorObj = { message: err.message }
+  if(err.details){
+    errorObj = {...errorObj, ...err.details}
+  }
+  res.json(errorObj).status(err.httpStatusCode || 500)
 })
 
 module.exports = server;

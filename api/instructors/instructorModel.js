@@ -2,24 +2,24 @@ const db = require('../../data/db.config');
 
 const pong = () => "pong"
 
-function find(id) {
-    let user = db('users');
-    
-    if (id) {
-        return user.where({ id: id }).first();
-    } else {
-        return user;
-    }
+const find = async (id) => {
+    return await db('instructors').where({ id });
 }
 
-async function add(user) {
-    await db('users').insert(user);
-    
-    return find(user.id);
+const add = async (instructor) => {
+    const [newInstructorID] = await db('instructors').insert(instructor).returning('id')
+    return newInstructorID;
 }
+
+const getAll = () => db('instructors')
 
 function findBy(filter) {
-    return db('users').where(filter);
+    return db('instructors').where(filter);
 }
 
-module.exports = { find, add, findBy, pong };
+const changeName = async (name) => {
+    const [newInstructorName] = await db('instructors').update({ name }).returning('name')
+    return newInstructorName
+}
+
+module.exports = { changeName, find, add, findBy, pong, getAll };
