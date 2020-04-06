@@ -5,8 +5,7 @@ exports.up = function (knex) {
     knex.schema.createTable("instructors", tbl => {
       tbl.increments();
 
-      tbl
-        .string("email")
+      tbl.string("email")
         .notNullable()
         .unique();
 
@@ -16,6 +15,8 @@ exports.up = function (knex) {
       tbl.string('name') // What name can students search for
         .notNullable()
         .unique()
+
+      tbl.integer('current_lesson')
 
     }))
 };
